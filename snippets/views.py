@@ -15,6 +15,24 @@ from snippets.permissions import IsOwnerOrReadOnly
 class SnippetViewSet(viewsets.ModelViewSet):
     """
     通过viewset提供list、CRUD，以及额外的highlight
+
+    retrieve:
+    查看指定的snippet
+
+    list:
+    列表形式返回所有的snippet
+
+    create:
+    新建snippet
+
+    update:
+    更新指定的snippet
+
+    delete:
+    删除指定的snippet
+
+    highlight:
+    返回指定的snippet渲染以后的HTML
     """
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
@@ -32,6 +50,14 @@ class SnippetViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     通过viewset提供list和detail功能
+    retrieve:
+    返回指定的User。
+
+    list:
+    返回所有用户的列表。
+
+    create:
+    创建用户
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
